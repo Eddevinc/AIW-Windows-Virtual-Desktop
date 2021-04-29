@@ -14,19 +14,19 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 
    ![](media/w24.png)
 
-3. Enter password **<inject key="AzureAdUserPassword" />** and click on **Sign in**.
+3. Enter the password **<inject key="AzureAdUserPassword" />** and click on **Sign in**.
 
    ![](media/w25.png)
 
-> **Note:** If there's a dialog box saying ***Help us protect your account***, then select **Skip for now** option.
+> **Note:** If there's a dialog box saying ***Help us protect your account***, then select the **Skip for now** option.
 >
 >    ![](media/login.png)
 >
-> **Note:** If there's a popup entitled ***Stay signed in?*** with buttons for **No** and **Yes** - Choose **No**.
+> **Note:** First time users may get a prompt to **Stay signed in**, click on **No**.
 >
 >    ![](media/w26.png)
 >   
-> **Note:** If there's another popup entitled ***Welcome to Microsoft Azure*** with buttons for **Start Tour** and **Maybe Later** - Choose **Maybe Later**.
+> **Note:** If you see a _**Welcome to Microsoft Azure**_ popup window offering you an introductory **Start Tour** option, select **Maybe later** to skip.
 >
 >    ![](media/wvd4.png) 
  
@@ -34,20 +34,20 @@ A Host Pool is a collection of Azure virtual machines that register to Windows V
 
 In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, then add two session hosts (virtual machines) i.e. *WVD-HP01-SH-0* and *WVD-HP01-SH-1*  and register the default desktop application group from this hostpool to a new workspace named *WVD-WS-01*.
 
-1. On **Azure portal** search for *Windows Virtual Desktop* in the search bar and select **Windows Virtual Desktop** from the suggestions.
+1. On the **Azure portal** search for *Windows Virtual Desktop* in the top search bar and select **Windows Virtual Desktop** from the suggestions.
 
    ![ws name.](media/w1.png)
  
 
-2. You will get directed towards the Windows Virtual Desktop (here after referred to as WVD) management window.  
+2. You will get directed to the Windows Virtual Desktop (here after referred to as WVD) management window.  
 
    ![ws name.](media/64.png)
 
-3. Now select **Host pools** under **Manage** blade and then click on **+ Add** to add new Host Pool.
+3. Now select **Host pools** under the **Manage** blade and click on **+ Add** to add new Host Pool.
 
    ![ws name.](media/z.png)
 
-4. In this step, we will provide the details required to create a Host Pool. For your convenience, this step is divided into two sections as follows:
+4. In this step, we will provide the details required to create a Host Pool. For your convenience, this step is divided into two sections:
 
  **A.** **Project Details –** Defines the Host Pool environment 
 
@@ -67,26 +67,26 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
    
       
    >**Note:** Host Pools are of 2 types: Pooled and Personal.  
-   > - **Pooled**, where session hosts can accept connections from any user authorized to an app group within the host pool.
-   > - **Personal**, where each session host is assigned to individual users.
+   > - **Pooled:** where session hosts can accept connections from any user authorized to an app group within the host pool.
+   > - **Personal:**, where each session host is assigned to individual users.
 
-   - Max session Limit: **5**
+   - Max session limit: **5**
    
       
-   >**Note:** Max session Limit limits the simultaneous number of users on the same session host.
+   >**Note:** Max session limit helps to regulate the number of simultaneous users on the same session host.
      
    - Load Balancing Algorithm: **Breadth First**
    
       
    >**Note:** Load Balancing Algorithm is of two types: *Breadth-first* and *Depth-first*. 
-   > - **Breadth-first** load balancing allows you to evenly distribute user sessions across the session hosts in a host pool. 
-   > - **Depth-first** load balancing allows you to saturate a session host with user sessions in a host pool. 
+   >    - **Breadth-first** load balancing allows you to evenly distribute user sessions across the session hosts in a host pool. 
+   >    - **Depth-first** load balancing allows you to saturate a session host with user sessions in a host pool. 
      
-   - Then click on **Next:Virtual Machines**.
+   - Click on **Next:Virtual Machines**.
    
    ![ws name.](media/w10.png)  
    
-5. In the Virtual machines tab, select **Yes** against **Add virtual machines**. By doing this, we are stepping towards adding Virtual machines to the host pool. 
+5. In the Virtual machines tab, select **Yes** to **Add virtual machines**. By doing this, we are stepping towards adding Virtual machines to the host pool. 
 
    ![ws name.](media/66.png)
 
@@ -95,7 +95,7 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
   **A**. Session Host Specifications:     
 
    - Resource Group: *Select **WVD-RG** from the drop down*.
-   - Virtual machine location: **East US**, *location should be same as location of your resource group*.
+   - Virtual machine location: **East US**, *location should be same as the location of your resource group*.
    - Virtual machine size: **Standard D4s_v3**. *Click on **Change Size**, then select **D4s_v3** and click on **Select** as shown below*
    
    ![ws name.](media/ch1.png)
@@ -127,7 +127,7 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
    
    ![ws name.](media/w2.png)
    
-> **Note:** This Administrator Account details will be used for domain joining the virtual machines to the Windows AD domain we created using AADDS.
+> **Note:** This Administrator Account details will be used for domain joining the virtual machines to the Windows AD domain that we created using AADDS.
    
 7. Click on **Next: Workspace** to proceed. 
 
@@ -138,25 +138,25 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
 
    ![ws name.](media/67.png)
    
-9. Once you click on **Create new**, a small window pops up, where you can specify the Workspace name you are going to create.  
+9. Once you click on **Create new**, a small window pops up where you can specify the Workspace name you are going to create.  
 
    - Workspace name: **WVD-WS-01** 
    - Click on **OK**
      
    ![ws name.](media/68.png) 
 
-10. Now click on **Review + create** on the bottom left corner. 
+10. Next, click on **Review + create** on the bottom left corner. 
 
     ![ws name.](media/69.png)
 
 
-11. The last window helps us to verify if the parameters we filled are correct. Wait for validation to pass, then click on **Create** to initiate the deployment. 
+11. The last window helps us to verify if the parameters we filled are correct. Wait for the validation to pass, and click on **Create** to initiate the deployment. 
 
     ![ws name.](media/ch4.png)
 
 > **Note:** The deployment will take about 30 minutes to succeed.
 
-12. Once the deployment is succeeded, open notifications and click on **Go to Resource**.  
+12. Once it is done, open notifications by clicking on the **bell icon** and click on **Go to Resource**.  
 
     ![ws name.](media/71.png)
 
@@ -168,17 +168,17 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
 >
 >   ![ws name.](media/w15.png)
 > 
->ii.  Select the resources highlighted in the image below, then click on ellipsis in the top-right corner and click on delete. Make sure you **DO NOT** delete any other resources other than the ones shown in screenshot below.
+>ii.  Select the **resources highlighted (1)** in the image below. Next, click on the **ellipsis (2)** in the top-right corner and click on **Delete (3)**. Make sure you **DO NOT** delete any other resources other than the ones highlighted in screenshot below.
 >
 >   ![ws name.](media/w27.png)
 >
->iii. Now under *Confirm delete* type **yes** in the bar and click on **Delete**.
+>iii. Once you are on the Delete Resources screen, type **yes** under _Confirm delete_ text bar and click on **Delete**
 > 
 >   ![ws name.](media/w28.png)
 >
->iv.  Once the resources get deleted, then perform Task 1 from Step 1 to Step 11 to create the Host Pool again.
+>iv.  Once the resources are deleted perform steps 1 to 11 under **Task 2: Create Host Pool**.
 >
->v.   Now wait for the deployment to succeed. When it gets succeeded, open the notifications and click on **Go to Resource**.  
+>v.   Now wait for the deployment to succeed. Once done, open the notifications and click on **Go to Resource**.  
 >
 >   ![ws name.](media/71.png) 
 
@@ -186,7 +186,7 @@ In this exercise, we will create a Host Pool named *WVD-HP-01* of pooled type, t
 
     ![ws name.](media/w29.png)
 
-14. Now click on **Session Hosts** present under **Manage** blade. Here you can view the session hosts created. 
+14. Now click on **Session Hosts** from under the **Manage** blade. Here you can view newly created session hosts. 
 
     ![ws name.](media/86.png)
 
