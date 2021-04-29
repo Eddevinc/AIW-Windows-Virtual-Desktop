@@ -19,11 +19,11 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ![ws name.](media/96.png)
   
-> **Note:** If there's a dialog box saying ***Help us protect your account***, then select **Skip for now** option.
+> **Note:** If you see a window popup titled ***Help us protect your account***, select the **Skip for now** option.
 >
 >    ![](media/login.png)
 
-3. The WVD dashboard will launch, then click on **Word** application to access it. 
+3. After the Windows Virtual Desktop (WVD) dashboard is launched, click on the **Word** application to access it. 
 
    ![ws name.](media/ag8.png)
 
@@ -41,15 +41,15 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ![ws name.](media/89.png)
       
-6. The Word application will launch and look similar to the screenshot below. Click on **Sign in**.
+6. The Word application will launch and will look similar to the screenshot below. Click on **Sign in**.
 
    ![ws name.](media/ch9.png)
 
-7. Enter username **<inject key="AzureAdUserEmail" />** on *Activate Office* window and click on **Next**.
+7. Enter the username **<inject key="AzureAdUserEmail" />** on *Activate Office* window and click on **Next**.
 
    ![ws name.](media/ch6.png)
 
-8. Enter password **<inject key="AzureAdUserPassword" />** and click on **Sign in**.
+8. Enter the password **<inject key="AzureAdUserPassword" />** and click on **Sign in**.
 
    ![ws name.](media/ch7.png)
    
@@ -73,12 +73,12 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
    ![ws name.](media/w12.png)
    
    
-2. We will land on the WVD dashboard again. Click on the tile named *Default Desktop* to launch the desktop.
+2. You will be redirected to the WVD dashboard. Click on **Default Desktop** to launch it.
 
    ![ws name.](media/ag9.png)
 
 
-3. Select **Allow** on the prompt asking permission to *Access local resources*.
+3. Select **Allow** on the prompt requesting permission to *Access local resources*.
 
    ![ws name.](media/93.png)
 
@@ -96,15 +96,15 @@ In this exercise, we will access the Desktop and RemoteApps assigned to us in th
 
    ![ws name.](media/ch12.png)
    
-6. Return back to the Azure Portal, search for *Windows virtual desktop* in the search bar and select **Windows Virtual Desktop** from the suggestions.
+6. Navigate back to the Azure Portal, search for *Windows virtual desktop* in the top search bar and select **Windows Virtual Desktop** from the suggestions.
 
    ![ws name.](media/w1.png)
 
-7. Click on **User** under *Manage* blade, then paste **<inject key="AzureAdUserEmail" />** in the search bar and click on your user to open it.
+7. Click on **Users** under the *Manage* blade, then paste **<inject key="AzureAdUserEmail" />** in the search bar and click on your user to open it.
 
    ![ws name.](media/jvm7.png)
 
-8. Click on **Sessions** tab, select both Host pools by clicking on the checkbox and then click on **Log off** button.
+8. Under the **Sessions** tab, select both the Host pools by clicking on the checkbox and then click on the **Log off** button.
 
    ![ws name.](media/jvm8.png)
 
