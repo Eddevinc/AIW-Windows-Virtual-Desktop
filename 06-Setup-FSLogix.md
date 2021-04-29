@@ -1,6 +1,6 @@
 # Exercise 5: Setup FSLogix
 
-The Windows Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Windows Virtual Desktop.
+The Windows Virtual Desktop (WVD) service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign-in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers are used with Azure Files function in Windows Virtual Desktop.
 
 ### **Task 1: Create Storage account and file share**
 
@@ -20,7 +20,7 @@ In the following task, we will be creating a storage account with a file share w
    
    - Resource Group: *Select **WVD-RG** from the drop down*. 
    
-   - Storage account name: *Go to Lab Environment tab, copy the* **Storage Account Name** *and paste it here in Storage account name box.*   
+   - Storage account name: *Go to Lab Environment tab, copy the* **Storage Account Name** *and paste it in Storage account name box.*   
    
    ![ws name.](media/up1.png)
    
@@ -58,18 +58,18 @@ In the following task, we will be creating a storage account with a file share w
 
    ![ws name.](media/up3.png)
 
-6. After deployment completes click on the notification icon on your azure portal, then click on **Go to resource**.
+6. After the deployment completes click on the notification icon on your Azure Portal, and click on **Go to resource**.
 
    ![ws name.](media/a59.png)
    
-7. In the storage account, click on **Configuration** present under **Settings** blade. Then scroll down and find the option **Active Directory Domain Services (Azure AD DS)**. Select **Enabled** for it.
+7. In the storage account, click on **Configuration** present under the **Settings** blade. Then scroll down and find the option **Active Directory Domain Services (Azure AD DS)**. Select **Enabled** for it.
 
    ![ws name.](media/up4.png)
     
 > **Note:** Setting this property implicitly ***domain joins*** the storage account with the associated Azure AD DS deployment. Azure AD DS authentication over SMB is then enabled for all new and existing file shares in the storage account.
     
     
-8. Then click on **Save**.
+8. Next, click on **Save**.
      
    ![ws name.](media/a61.png)
  
@@ -82,10 +82,7 @@ In the following task, we will be creating a storage account with a file share w
    ![ws name.](media/a63.png)
     
     
-11. Enter the following name for your file share.
-    
-    - Name: **userprofile**    
-    - Click on **Create**. This will create the file share.
+11. Enter **user profile** as the name and click on **Create**. This will create the file share.
     
     ![ws name.](media/a64.png)
 
@@ -99,7 +96,7 @@ In this task we will give *Storage File Data SMB Share Contributor* permissions 
    ![ws name.](media/a65.png)
      
          
-2. Click on **Access Control (IAM)**, then click on **Add** and select **Add role assignment**.
+2. Click on **Access Control (IAM) (1)**, then click on **Add (2)** and select **Add role assignment (3)**.
 
    ![ws name.](media/wvd48.png)
    
@@ -125,7 +122,7 @@ In this task we will give *Storage File Data SMB Share Contributor* permissions 
 
 In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** session host using a Powershell script.
 
-1. In your Azure portal search for *Virtual machines* in the search bar and click on **Virtual Machines** from the suggestions.
+1. In your Azure Portal type *Virtual machines* in the search bar and click on **Virtual Machines** from the suggestions.
 
    ![ws name.](media/up11.png)
       
@@ -144,12 +141,12 @@ In this task we will install and configure FSLogix in the **WVD-HP01-SH-0** sess
    ![ws name.](media/a68.png)
    
    
-5. A similar window as that of the below image will appear.
+5. Powershell will now launch and should look identical to the image below.
 
    ![ws name.](media/a69.png)
    
       
-6. **Copy** the script given below and paste it by pressing **Ctrl + V** in the Powershell window. Do not run the script right away.
+6. **Copy** the script given below and paste it in the Powershell window by pressing **Ctrl + V** on your keyboard.
 
 
 ```
@@ -225,7 +222,7 @@ Write-Host "Script Executed successfully"
 
    ![ws name.](media/up5.png)
 
-9. Wait for some time for the script to execute. Once done, it will show an output saying **Script Executed successfully**.
+9. Wait for some time for the script to execute. Once done, it will show an output message saying **Script Executed successfully**.
 
    ![ws name.](media/up6.png)
    
@@ -241,7 +238,7 @@ Write-Host "Script Executed successfully"
     ![ws name.](media/a68.png)
     
     
-12. **Copy** the script given below and paste it by pressing **Ctrl + V** in the Powershell window. Do not run the script right away.
+12. **Copy** the script given below and paste it in the Powershell window by pressing **Ctrl + V** on your keyboard. **DO NOT** run the script right away.
 
 ```
 #Variables
@@ -307,7 +304,7 @@ Write-Host "Script Executed successfully"
 > iii) Set the profile container location to the Azure file share location we created.
  
 
-13. In line 2, we have to replace the name of storage account with the **"NameofStorageAccount"** block.
+13. In line 2, we have to replace the name of the storage account with the **"NameofStorageAccount"** block.
 
    ![ws name.](mediajvm24.png)
 
@@ -316,7 +313,7 @@ Write-Host "Script Executed successfully"
    ![ws name.](media/up5.png)
       
  
-15. Wait for some time for the script to execute.  Once done, it will show an output saying **Script Executed successfully**.
+15. Wait for some time for the script to execute.  Once done, it will show an output message saying **Script Executed successfully**.
 
    ![ws name.](media/up6.png)
    
@@ -331,7 +328,7 @@ Write-Host "Script Executed successfully"
 
     ![ws name.](media/fs15.png)
     
-18. Switch to **Sessions** tab, then select both *Host Pools* and click on **Log off**.
+18. Switch to **Sessions (1)** tab, then check **both Host Pools (2)** and click on **Log off (3)**.
 
     ![ws name.](media/a72.png)
     
@@ -342,7 +339,7 @@ Write-Host "Script Executed successfully"
 > **Note:** This will logoff the user **<inject key="AzureAdUserEmail" />** from both the session hosts, so that when the user sign in again to the session hosts, FSLogix will start functioning.
     
     
-20. Now paste this link ```aka.ms/wvdarmweb``` in your browser in the JumpVM, and enter your **credentials** to login. 
+20. Now paste this link ```aka.ms/wvdarmweb``` in your web browser in the JumpVM, and enter your **credentials** to login. 
 
     - Username: Paste username **<inject key="AzureAdUserEmail" />**, then click on **Next**.
    
@@ -363,7 +360,7 @@ Write-Host "Script Executed successfully"
 
    ![ws name.](media/89.png)
         
-23. The desktop will launch looking similar to the screenshot below, telling ***Please wait for the FSLogix Apps Services***.
+23. The desktop will launch identical to the screenshot below with a message ***Please wait for the FSLogix Apps Services***.
 
     ![ws name.](media/wiw19.png)
     
@@ -373,7 +370,7 @@ Write-Host "Script Executed successfully"
 
     ![ws name.](media/launchwvd.png)
 
-25. At last, click on **User Account** and click on **Sign Out**.
+25. Finally, click on **User Account** and click on **Sign Out**.
 
    ![ws name.](media/jvm23.png)
    
@@ -381,11 +378,11 @@ Write-Host "Script Executed successfully"
 
 In this task, we will be accessing the file share to verify the user profiles stored in *.vhd* format.
 
-1. Return to the Azure Portal, search for *storage accounts* in the search bar and click on **Storage Accounts** from the suggestions.
+1. Return to the Azure Portal, search for *storage accounts* in the top search bar and click on **Storage Accounts** from the suggestions.
 
    ![ws name.](media/up10.png)
     
-2. Click on the storage account we created in **Task 1 step 3**, then under settings blade click on  **Networking**.
+2. Click on the storage account we created in **Task 1 step 3**, then under the settings blade click on  **Networking**.
 
    ![ws name.](media/jvm15.png)
    
